@@ -8,6 +8,7 @@ from caching import REPOSIROTY_DATA_DIR
 from fixing_issues import get_commits_between_versions, Version_Info, commits_and_issues,clean_commit_message
 from commit import Commit
 from caching import cached
+from collections import Counter
 from apache_repos import get_apache_repos_data
 
 VERSIONS = os.path.join(REPOSIROTY_DATA_DIR, r"apache_versions")
@@ -15,7 +16,7 @@ VERSIONS = os.path.join(REPOSIROTY_DATA_DIR, r"apache_versions")
 def get_repo_adata(repo_path, jira_key):
 
     if not os.path.exists(repo_path):
-        print "start git clone https://github.com/apache/{0}.git".format(os.path.basename(repo_path))
+        print( "start git clone https://github.com/apache/{0}.git".format(os.path.basename(repo_path)))
         return
 
     versions = get_repo_versions(repo_path)
@@ -56,7 +57,8 @@ def get_jira_data(jira_project_name, jira_url, gitPath):
     dict_issues = {x.key.strip().split("-")[1]:x for x in get_jira_issues(jira_project_name, jira_url)}
     #issues = map(lambda x: x.key.strip(), get_jira_issues(jira_project_name, jira_url))
     commits = commits_and_all_issues(repo, dict_issues)
-    print jira_project_name, "num issues: " , len(dict_issues.keys()), "num bug commits: ", len(filter(lambda c: c.is_bug(), commits))
+    print (jira_project_name, "num issues: " , len(dict_issues.keys()),
+           "num bug commits: ", len(filter(lambda c: c.is_bug(), commits)))
     return commits
 
 
@@ -88,7 +90,7 @@ def get_jira_types(commits):
     type_commits = {}
     for t in issue_types:
         type_commits[t] = sum(c._issue.type == t for c in commits)
-    for k, v in type_commits.items(): print k, ": ", v
+    for k, v in type_commits.items(): print (k, ": ", v)
     return type_commits.keys()
 
 
@@ -168,12 +170,92 @@ def save_tickets_stats(out_file, gitPath, jira_url, jira_project_name, versions)
                              datetime.fromtimestamp(tag.tag._commit._commit_date).strftime("%Y-%m-%d")] + type_data)
 
 
+def visualize_repo(repo_path):
+
+
+    if not os.path.exists(repo_path):
+        print ("start git clone https://github.com/apache/{0}.git".format(os.path.basename(repo_path)))
+        return
+
+    versions = get_repo_versions(repo_path)
+    if len(versions) < 4:
+        print ("Less than 5 versions for repo, aborting")
+        return
+
+    version_tag_dates = [v._commit._commit_date for v in versions]
+
+    repo = git.Repo(repo_path)
+
+    print('getting master')
+
+    dates = []
+    num_files = []
+    num_additions = []
+    num_deletions = []
+    total_files = []
+
+    for git_commit in repo.iter_commits():
+        if not git_commit.parents:
+            text_file_stats = repo.git.diff(git_commit.hexsha, '--', '--name-status', numstat=True)
+        else:
+            text_file_stats = repo.git.diff(git_commit.parents[0].hexsha, git_commit.hexsha, '--name-status', numstat=True)
+        all_statuses = [line.split("\t")[0] for line in text_file_stats.splitlines()]
+        dates.append(git_commit.committed_datetime)
+        num_deletions.append(len([s for s in all_statuses if 'D' in s])*-1)
+        num_additions.append(len([s for s in all_statuses if 'A' in s]))
+        num_files.append(len(all_statuses))
+        total_files.append(len([1 for item in git_commit.tree.traverse() if item.type =='blob']))
+
+
+
+    #
+    #
+    # commits_dates = [c.committed_datetime for c in commits]
+    #
+    # print('got dates ', len(commits_dates))
+    #
+    # print('single commit stats ')
+    # print(dir(commits[0].stats))
+    #
+    # commits_num_files = [len(c.stats.files) for c in commits]
+    #
+    # print('got num files ', len(commits_num_files))
+    from matplotlib import pyplot as plt
+    fig, ax = plt.subplots(2,1, sharex = True)
+    ax[0].plot(dates, num_additions, label='additions')
+    ax[0].plot(dates, num_deletions, label='deletions')
+    ax[1].plot(dates, num_files, label='commit files')
+    ax[1].plot(dates, total_files, label='total files')
+    ax[0].set(title=os.path.split(repo_path)[1])
+    ax[0].legend()
+    ax[1].set(xlabel="dates", ylabel="# files")
+    ax[1].legend()
+
+    # import plot_repos
+    # plot_repos.plot_line( dates, {'additions': num_additions,
+    #                               'deletions': num_deletions,
+    #                               'commit files': num_files,
+    #                               'total files': total_files},
+    #                      "dates", "#files", os.path.split(repo_path)[1], num_subplots=3)
+
+    pass
+
+def test_for_deletions(repo_path):
+
+    repo = git.Repo(repo_path)
+
 
 
 
 if __name__ == "__main__":
+    #test_for_deletions('C:\\temp\\apache_repos\\commons-email')
 
-    get_repo_adata('C:\\temp\\apache_repos\\logging-log4j2', 'log4j2')
+    visualize_repo('C:\\temp\\apache_repos\\distributedlog')
+#    visualize_repo('C:\\temp\\apache_repos\\logging-log4j2')
+
+
+#    get_repo_adata('C:\\temp\\apache_repos\\logging-log4j2', 'log4j2')
+
 
     pass
 

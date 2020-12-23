@@ -1,6 +1,7 @@
 import os
 import pickle
 import gzip
+import jsonpickle
 
 REPOSIROTY_DATA_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "repository_data")
 REPOSIROTY_CACHING_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "repository_caching")
@@ -38,6 +39,9 @@ def cached(cache_name, cache_dir=REPOSIROTY_CACHING_DIR):
             with gzip.GzipFile(gzip_cachefile, 'wb') as cachehandle:
                 pickle.dump(res, cachehandle, pickle.HIGHEST_PROTOCOL)
 
+            with open(gzip_cachefile + '.json', 'w') as jsonhandle:
+                jsonhandle.write(jsonpickle.encode(res))
+                jsonhandle.close()
             return res
 
         return wrapped

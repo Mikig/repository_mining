@@ -6,14 +6,19 @@ class Issue(object):
     def __init__(self, issue):
         self.key = issue.key.strip()
         self.type = issue.fields.issuetype.name.lower()
+        self.number = issue.key.split("-")[1]
+        self.summary = issue.fields.summary
+        self.status = issue.fields.status.name if issue.fields.status else "NA"
+        self.resolution = issue.fields.resolution.name if issue.fields.resolution else "NA"
 
-@cached("apache_jira")
+#@cached("apache_jira")
 def get_jira_issues(project_name, url, bunch = 100):
     jira_conn = jira.JIRA(url)
     all_issues=[]
     extracted_issues = 0
     while True:
         issues = jira_conn.search_issues("project={0}".format(project_name), maxResults=bunch, startAt=extracted_issues)
+        #issues = filter(lambda x: x.fields.status.name == 'Resolved' and x.fields.resolution.name == 'Fixed', issues)
         all_issues.extend(issues)
         extracted_issues=extracted_issues+bunch
         if len(issues) < bunch:

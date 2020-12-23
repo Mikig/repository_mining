@@ -8,7 +8,7 @@ from versions import get_repo_versions, get_tags_by_name
 from fixing_issues import save_bugs, get_bugged_files_between_versions
 from caching import REPOSIROTY_DATA_DIR, cached, assert_dir_exists
 
-REPO_DIR = r"C:\Temp\apache_repos"
+REPO_DIR = r"C:\temp\apache_repos"
 VERSIONS = os.path.join(REPOSIROTY_DATA_DIR, r"apache_versions")
 CONFIGRATION_PATH = os.path.join(REPOSIROTY_DATA_DIR, r"configurations")
 assert_dir_exists(CONFIGRATION_PATH)
