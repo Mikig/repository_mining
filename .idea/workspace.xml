@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="71da952e-e94b-495b-897a-3eb62be2bdca" name="Default" comment="">
+    <list default="true" id="71da952e-e94b-495b-897a-3eb62be2bdca" name="Default" comment="Updating files">
+      <change afterPath="$PROJECT_DIR$/resources/commit_files.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apache_repos.py" beforeDir="false" afterPath="$PROJECT_DIR$/apache_repos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caching.py" beforeDir="false" afterPath="$PROJECT_DIR$/caching.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commit.py" beforeDir="false" afterPath="$PROJECT_DIR$/commit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixing_issues.py" beforeDir="false" afterPath="$PROJECT_DIR$/fixing_issues.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/issues.py" beforeDir="false" afterPath="$PROJECT_DIR$/issues.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +82,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/diff/commitsdiff.py" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="get_b&#9;null&#9;null&#10;source&#9;null&#9;null&#10;Commit&#9;FILE&#9;file://C:/Users/User/Documents/GitHub/repository_mining/commit.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Michal\Dev\PycharmProjects\Align\repository_mining\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\GitHub\repository_mining\diff" />
     </key>
@@ -231,7 +249,25 @@
       <option name="presentableId" value="Default" />
       <updated>1529871594826</updated>
     </task>
+    <task id="LOCAL‎00001" summary="Updating files">
+      <created>1608803486856</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1608803486856</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -243,6 +279,16 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updating files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating files" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608803497342">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608803497342" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
