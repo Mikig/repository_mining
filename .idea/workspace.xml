@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71da952e-e94b-495b-897a-3eb62be2bdca" name="Default" comment="Updating files">
-      <change afterPath="$PROJECT_DIR$/resources/commit_files.png" afterDir="false" />
+    <list default="true" id="71da952e-e94b-495b-897a-3eb62be2bdca" name="Default" comment="Update documentation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -255,7 +254,13 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1608803486856</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎00002" summary="Update documentation.">
+      <created>1608803724614</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1608803724614</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,13 +287,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updating files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating files" />
+    <MESSAGE value="Update documentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update documentation." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="232" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608803497342">
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608803727632">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608803497342" />
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608803727632" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
